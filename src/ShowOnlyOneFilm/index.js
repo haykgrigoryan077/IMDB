@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { FilmContext } from "../ShowAllMovies";
-import './style.css'
-
+import "./style.css";
 
 const ShowSearchedFilm = ({ searchedFilm }) => {
   const data = useContext(FilmContext);
-  const [indexOfFilm, setIndexOfFilm] = useState('')
   let index;
 
   for (let i = 0; i < data.length; i++) {
@@ -17,19 +15,30 @@ const ShowSearchedFilm = ({ searchedFilm }) => {
     }
   }
 
-  console.log(data, data[index]);  
-  
-  if(index || index === 0) {
+  if (index || index === 0) {
     return (
       <div className="searchedFilmWrapper">
-        <div className="searchedFilmTitle">
-          {<h3>{data[index].title}</h3>}
-          {/* {index && <h3>uraaaaaaaaaaaa</h3>} */}
+        <div className="searchedMovieBox">
+          <div className="searchedFilmTitle">
+            {<h3>{data[index].title}</h3>}
+          </div>
+          <div className="searchedFilmImageWrapper">
+            <div className="runTime">
+              <h4>Time {data[index].running_time}</h4>
+            </div>
+            <img className="searchedFilmImage" src={data[index].image} />
+            <div className="rating">
+              <h4>IMDB {data[index].rt_score}</h4>
+            </div>
+          </div>
+          <div className="releaseDateWrapper">
+            <h4>Release Date {data[index].release_date}</h4>
+          </div>
         </div>
       </div>
     );
-  } 
-}
+  }
+};
 //   else {
 //     return (
 //       <div className="NotFound">
@@ -37,6 +46,5 @@ const ShowSearchedFilm = ({ searchedFilm }) => {
 //       </div>
 //     );
 //   }
-
 
 export default ShowSearchedFilm;

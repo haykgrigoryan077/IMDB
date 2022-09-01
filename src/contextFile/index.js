@@ -8,7 +8,6 @@ const getData = (setData) => {
   .then((response) => {
     const films = response.data
     setData(films)
-    console.log(films);
   })
 };
 
