@@ -32,11 +32,9 @@ const SearchFilm = ({
             onClick={() => {
               setFinalSearch(filmSearch);
               {
-                console.log(finalSearch);
-              }
-              {
                 <ShowSearchedFilm searchedFilm={finalSearch} />;
               }
+              setFilmSearch('')
             }}
           >
             <i className="fa fa-search"></i>

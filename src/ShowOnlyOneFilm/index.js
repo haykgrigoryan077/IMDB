@@ -36,7 +36,13 @@ const ShowSearchedFilm = ({ searchedFilm }) => {
           </div>
         </div>
       </div>
-    );
+  ); 
+  } else if (searchedFilm && !index) {
+    return (
+      <div className="notFound">
+        <h3 className="sorryText">Sorry, We Couldn`t Find Your Movie</h3>
+      </div>
+    )
   }
 };
 //   else {
